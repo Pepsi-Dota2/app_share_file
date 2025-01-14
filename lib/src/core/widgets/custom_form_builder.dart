@@ -1,3 +1,4 @@
+import 'package:app_share_file/src/core/constant/colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
@@ -24,12 +25,25 @@ class CustomFormBuilder extends StatelessWidget {
     return FormBuilderTextField(
       name: name,
       decoration: InputDecoration(
-        labelText: labelText ?? name,
         hintText: hintText ?? 'Enter $name',
+         border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12.0), 
+          borderSide: BorderSide.none, 
+        ),
+        filled: true,
+        fillColor: AppColors.backgroundWhite,
+        isDense: true,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        hintStyle: const TextStyle(
+          fontSize: 14.0,
+          color: Colors.grey,
+        ),
       ),
       obscureText: obscureText,
       initialValue: initialValue,
       validator: validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      textInputAction: TextInputAction.next,
     );
   }
 }
