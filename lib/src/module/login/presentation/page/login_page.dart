@@ -1,3 +1,4 @@
+import 'package:app_share_file/src/core/widgets/custom_button_submit.dart';
 import 'package:app_share_file/src/core/widgets/custom_form_builder.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Custom Form Example')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: FormBuilder(
@@ -48,7 +48,8 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
+              CustomButtonSubmit(
+                label: 'SignIn',
                 onPressed: () {
                   if (_formKey.currentState?.saveAndValidate() ?? false) {
                     // Handle successful form submission
@@ -59,7 +60,6 @@ class _LoginPageState extends State<LoginPage> {
                     print('Form is invalid');
                   }
                 },
-                child: const Text('Submit'),
               ),
             ],
           ),
