@@ -43,7 +43,19 @@ class _LoginPageState extends State<LoginPage> {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {},
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          actions: [
+            LanguageButtonWidget(
+              locale: context.locale,
+              onPressed: () {
+                showLanguageBottomSheet(
+                  context,
+                  (locale) => {context.setLocale(locale)},
+                );
+              },
+            ),
+          ],
+        ),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
@@ -52,28 +64,11 @@ class _LoginPageState extends State<LoginPage> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    LanguageButtonWidget(
-                      locale: context.locale,
-                      onPressed: () {
-                        showLanguageBottomSheet(
-                          context,
-                          (locale) => {
-                            if (['en', 'lo'].contains(locale.languageCode))
-                              {context.setLocale(locale)}
-                            else
-                              {
-                                print(
-                                    'Unsupported language: ${locale.languageCode}')
-                              }
-                          },
-                        );
-                      },
-                    ),
                     ColorFiltered(
                       colorFilter: ColorFilter.mode(
                         isDarkMode
                             ? AppColors.backgroundWhite
-                            : AppColors.grabageColor, 
+                            : AppColors.grabageColor,
                         BlendMode.srcIn,
                       ),
                       child: Image.asset("assets/images/logo_terracycle.png"),
