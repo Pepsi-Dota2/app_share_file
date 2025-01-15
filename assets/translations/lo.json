@@ -1,0 +1,18 @@
+{
+  "login": {
+    "username_hint": "ປ້ອນຊື່ຜູ້ໃຊ້ຂອງທ່ານ",
+    "username_validation": "ກະລຸນາໃສ່ຊື່ຜູ້ໃຊ້",
+    "password": "ລະຫັດຜ່ານ",
+    "password_validation": "ກະລຸນາໃສ່ລະຫັດຜ່ານ",
+    "remember_me": "ຈື່ຈຳຂ້ອຍ",
+    "forgot_password": "ລືມລະຫັດຜ່ານ?",
+    "sign_in": "ເຂົ້າສູ່ລະບົບ",
+    "no_account": "ບໍ່ມີບັນຊີ?",
+    "sign_up": " ລົງທະບຽນ"
+  },
+  "translate":{
+    "en":"ພາສາອັງກິດ",
+    "la":"ພາສາລາວ",
+    "select_language": "ເລືອກພາສາ"
+  }
+}

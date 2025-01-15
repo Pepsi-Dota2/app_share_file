@@ -1,0 +1,18 @@
+{
+  "login": {
+    "username_hint": "Enter your username",
+    "username_validation": "Please enter a username",
+    "password": "Password",
+    "password_validation": "Please enter a password",
+    "remember_me": "Remember me",
+    "forgot_password": "Forgot password?",
+    "sign_in": "Sign In",
+    "no_account": "Don't have an account?",
+    "sign_up": " Sign Up"
+  },
+  "translate":{
+    "en":"English",
+    "la":"Laos",
+    "select_language": "Select language"
+  }
+}

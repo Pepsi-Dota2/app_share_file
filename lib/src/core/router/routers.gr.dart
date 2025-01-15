@@ -28,7 +28,7 @@ abstract class $AppRouter extends _i3.RootStackRouter {
     LoginRoute.name: (routeData) {
       return _i3.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.LoginPage(),
+        child: _i3.WrappedRoute(child: const _i2.LoginPage()),
       );
     },
   };
