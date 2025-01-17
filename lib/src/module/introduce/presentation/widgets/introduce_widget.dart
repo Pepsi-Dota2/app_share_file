@@ -1,3 +1,5 @@
+import 'package:app_share_file/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -11,29 +13,28 @@ class IntroduceWidget extends StatelessWidget {
         child: IntroductionScreen(
           pages: [
             PageViewModel(
-              title: "Welcome to CleanEarth!",
-              body: "Join us in making the planet cleaner and greener by managing waste responsibly.",
+              title: LocaleKeys.tutorial_welcome_title.tr(),
+              body: LocaleKeys.tutorial_welcome_body.tr(),
               image: const Center(
                 child: Icon(Icons.eco, size: 100.0, color: Colors.green),
               ),
             ),
             PageViewModel(
-              title: "Recycle and Reuse",
-              body: "Learn how to sort waste, recycle materials, and reduce landfill impact.",
+              title: LocaleKeys.tutorial_recycle_title.tr(),
+              body: LocaleKeys.tutorial_recycle_body.tr(),
               image: const Center(
                 child: Icon(Icons.recycling, size: 100.0, color: Colors.blue),
               ),
             ),
             PageViewModel(
-              title: "Track Your Impact",
-              body: "Monitor your contribution to a cleaner environment and earn rewards for sustainable actions.",
+              title: LocaleKeys.tutorial_recycle_title.tr(),
+              body: LocaleKeys.tutorial_track_body.tr(),
               image: const Center(
                 child: Icon(Icons.bar_chart, size: 100.0, color: Colors.orange),
               ),
             ),
           ],
           onDone: () {
-              //
           },
           showSkipButton: true,
           skip: TextButton(

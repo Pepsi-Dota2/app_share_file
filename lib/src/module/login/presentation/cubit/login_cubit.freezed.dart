@@ -21,7 +21,9 @@ mixin _$LoginState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function() success,
+    required TResult Function(Failure failure) failure,
+    required TResult Function(List<UserLoginModel> userLogin, bool? isRemember)
+        success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +31,9 @@ mixin _$LoginState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function()? success,
+    TResult? Function(Failure failure)? failure,
+    TResult? Function(List<UserLoginModel> userLogin, bool? isRemember)?
+        success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +41,8 @@ mixin _$LoginState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function()? success,
+    TResult Function(Failure failure)? failure,
+    TResult Function(List<UserLoginModel> userLogin, bool? isRemember)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,6 +51,7 @@ mixin _$LoginState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
+    required TResult Function(_Failure value) failure,
     required TResult Function(_Success value) success,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +60,7 @@ mixin _$LoginState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Failure value)? failure,
     TResult? Function(_Success value)? success,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +69,7 @@ mixin _$LoginState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
+    TResult Function(_Failure value)? failure,
     TResult Function(_Success value)? success,
     required TResult orElse(),
   }) =>
@@ -133,7 +141,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function() success,
+    required TResult Function(Failure failure) failure,
+    required TResult Function(List<UserLoginModel> userLogin, bool? isRemember)
+        success,
   }) {
     return initial();
   }
@@ -144,7 +154,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function()? success,
+    TResult? Function(Failure failure)? failure,
+    TResult? Function(List<UserLoginModel> userLogin, bool? isRemember)?
+        success,
   }) {
     return initial?.call();
   }
@@ -155,7 +167,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function()? success,
+    TResult Function(Failure failure)? failure,
+    TResult Function(List<UserLoginModel> userLogin, bool? isRemember)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -170,6 +183,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
+    required TResult Function(_Failure value) failure,
     required TResult Function(_Success value) success,
   }) {
     return initial(this);
@@ -181,6 +195,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Failure value)? failure,
     TResult? Function(_Success value)? success,
   }) {
     return initial?.call(this);
@@ -192,6 +207,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
+    TResult Function(_Failure value)? failure,
     TResult Function(_Success value)? success,
     required TResult orElse(),
   }) {
@@ -250,7 +266,9 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function() success,
+    required TResult Function(Failure failure) failure,
+    required TResult Function(List<UserLoginModel> userLogin, bool? isRemember)
+        success,
   }) {
     return loading();
   }
@@ -261,7 +279,9 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function()? success,
+    TResult? Function(Failure failure)? failure,
+    TResult? Function(List<UserLoginModel> userLogin, bool? isRemember)?
+        success,
   }) {
     return loading?.call();
   }
@@ -272,7 +292,8 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function()? success,
+    TResult Function(Failure failure)? failure,
+    TResult Function(List<UserLoginModel> userLogin, bool? isRemember)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -287,6 +308,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
+    required TResult Function(_Failure value) failure,
     required TResult Function(_Success value) success,
   }) {
     return loading(this);
@@ -298,6 +320,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Failure value)? failure,
     TResult? Function(_Success value)? success,
   }) {
     return loading?.call(this);
@@ -309,6 +332,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
+    TResult Function(_Failure value)? failure,
     TResult Function(_Success value)? success,
     required TResult orElse(),
   }) {
@@ -394,7 +418,9 @@ class _$ErrorImpl implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function() success,
+    required TResult Function(Failure failure) failure,
+    required TResult Function(List<UserLoginModel> userLogin, bool? isRemember)
+        success,
   }) {
     return error(message);
   }
@@ -405,7 +431,9 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function()? success,
+    TResult? Function(Failure failure)? failure,
+    TResult? Function(List<UserLoginModel> userLogin, bool? isRemember)?
+        success,
   }) {
     return error?.call(message);
   }
@@ -416,7 +444,8 @@ class _$ErrorImpl implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function()? success,
+    TResult Function(Failure failure)? failure,
+    TResult Function(List<UserLoginModel> userLogin, bool? isRemember)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -431,6 +460,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
+    required TResult Function(_Failure value) failure,
     required TResult Function(_Success value) success,
   }) {
     return error(this);
@@ -442,6 +472,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Failure value)? failure,
     TResult? Function(_Success value)? success,
   }) {
     return error?.call(this);
@@ -453,6 +484,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
+    TResult Function(_Failure value)? failure,
     TResult Function(_Success value)? success,
     required TResult orElse(),
   }) {
@@ -476,10 +508,172 @@ abstract class _Error implements LoginState {
 }
 
 /// @nodoc
+abstract class _$$FailureImplCopyWith<$Res> {
+  factory _$$FailureImplCopyWith(
+          _$FailureImpl value, $Res Function(_$FailureImpl) then) =
+      __$$FailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Failure failure});
+}
+
+/// @nodoc
+class __$$FailureImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$FailureImpl>
+    implements _$$FailureImplCopyWith<$Res> {
+  __$$FailureImplCopyWithImpl(
+      _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failure = null,
+  }) {
+    return _then(_$FailureImpl(
+      null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FailureImpl implements _Failure {
+  const _$FailureImpl(this.failure);
+
+  @override
+  final Failure failure;
+
+  @override
+  String toString() {
+    return 'LoginState.failure(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FailureImpl &&
+            (identical(other.failure, failure) || other.failure == failure));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failure);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
+      __$$FailureImplCopyWithImpl<_$FailureImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(Failure failure) failure,
+    required TResult Function(List<UserLoginModel> userLogin, bool? isRemember)
+        success,
+  }) {
+    return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message)? error,
+    TResult? Function(Failure failure)? failure,
+    TResult? Function(List<UserLoginModel> userLogin, bool? isRemember)?
+        success,
+  }) {
+    return failure?.call(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(Failure failure)? failure,
+    TResult Function(List<UserLoginModel> userLogin, bool? isRemember)? success,
+    required TResult orElse(),
+  }) {
+    if (failure != null) {
+      return failure(this.failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_Success value) success,
+  }) {
+    return failure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Success value)? success,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_Success value)? success,
+    required TResult orElse(),
+  }) {
+    if (failure != null) {
+      return failure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Failure implements LoginState {
+  const factory _Failure(final Failure failure) = _$FailureImpl;
+
+  Failure get failure;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<UserLoginModel> userLogin, bool? isRemember});
 }
 
 /// @nodoc
@@ -492,26 +686,73 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userLogin = null,
+    Object? isRemember = freezed,
+  }) {
+    return _then(_$SuccessImpl(
+      userLogin: null == userLogin
+          ? _value._userLogin
+          : userLogin // ignore: cast_nullable_to_non_nullable
+              as List<UserLoginModel>,
+      isRemember: freezed == isRemember
+          ? _value.isRemember
+          : isRemember // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl();
+  const _$SuccessImpl(
+      {final List<UserLoginModel> userLogin = const [],
+      this.isRemember = false})
+      : _userLogin = userLogin;
+
+  final List<UserLoginModel> _userLogin;
+  @override
+  @JsonKey()
+  List<UserLoginModel> get userLogin {
+    if (_userLogin is EqualUnmodifiableListView) return _userLogin;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_userLogin);
+  }
+
+  @override
+  @JsonKey()
+  final bool? isRemember;
 
   @override
   String toString() {
-    return 'LoginState.success()';
+    return 'LoginState.success(userLogin: $userLogin, isRemember: $isRemember)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SuccessImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessImpl &&
+            const DeepCollectionEquality()
+                .equals(other._userLogin, _userLogin) &&
+            (identical(other.isRemember, isRemember) ||
+                other.isRemember == isRemember));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_userLogin), isRemember);
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -519,9 +760,11 @@ class _$SuccessImpl implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function() success,
+    required TResult Function(Failure failure) failure,
+    required TResult Function(List<UserLoginModel> userLogin, bool? isRemember)
+        success,
   }) {
-    return success();
+    return success(userLogin, isRemember);
   }
 
   @override
@@ -530,9 +773,11 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function()? success,
+    TResult? Function(Failure failure)? failure,
+    TResult? Function(List<UserLoginModel> userLogin, bool? isRemember)?
+        success,
   }) {
-    return success?.call();
+    return success?.call(userLogin, isRemember);
   }
 
   @override
@@ -541,11 +786,12 @@ class _$SuccessImpl implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function()? success,
+    TResult Function(Failure failure)? failure,
+    TResult Function(List<UserLoginModel> userLogin, bool? isRemember)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(userLogin, isRemember);
     }
     return orElse();
   }
@@ -556,6 +802,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
+    required TResult Function(_Failure value) failure,
     required TResult Function(_Success value) success,
   }) {
     return success(this);
@@ -567,6 +814,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Failure value)? failure,
     TResult? Function(_Success value)? success,
   }) {
     return success?.call(this);
@@ -578,6 +826,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
+    TResult Function(_Failure value)? failure,
     TResult Function(_Success value)? success,
     required TResult orElse(),
   }) {
@@ -589,5 +838,16 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements LoginState {
-  const factory _Success() = _$SuccessImpl;
+  const factory _Success(
+      {final List<UserLoginModel> userLogin,
+      final bool? isRemember}) = _$SuccessImpl;
+
+  List<UserLoginModel> get userLogin;
+  bool? get isRemember;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

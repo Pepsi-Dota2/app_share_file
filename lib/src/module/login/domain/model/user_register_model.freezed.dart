@@ -20,10 +20,10 @@ UserRegisterModel _$UserRegisterModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserRegisterModel {
-  String get username => throw _privateConstructorUsedError; // Not nullable
-  String get password => throw _privateConstructorUsedError; // Not nullable
-  String get email => throw _privateConstructorUsedError; // Not nullable
-  String get phoneNumber => throw _privateConstructorUsedError; // Not nullable
+  String get username => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get phoneNumber => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
 
   /// Serializes this UserRegisterModel to a JSON map.
@@ -171,16 +171,12 @@ class _$UserRegisterModelImpl implements _UserRegisterModel {
 
   @override
   final String username;
-// Not nullable
   @override
   final String password;
-// Not nullable
   @override
   final String email;
-// Not nullable
   @override
   final String phoneNumber;
-// Not nullable
   @override
   final String address;
 
@@ -238,13 +234,13 @@ abstract class _UserRegisterModel implements UserRegisterModel {
       _$UserRegisterModelImpl.fromJson;
 
   @override
-  String get username; // Not nullable
+  String get username;
   @override
-  String get password; // Not nullable
+  String get password;
   @override
-  String get email; // Not nullable
+  String get email;
   @override
-  String get phoneNumber; // Not nullable
+  String get phoneNumber;
   @override
   String get address;
 

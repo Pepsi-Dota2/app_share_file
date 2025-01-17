@@ -17,3 +17,11 @@ enum Translate{
   en,
   la
 }
+
+enum Status {
+  initial,
+  loading,
+  success,
+  userNotFound,
+  failure,
+}

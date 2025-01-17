@@ -64,6 +64,10 @@ dependencies:
   easy_localization: ^3.0.7
   easy_localization_generator: ^0.3.3
   dropdown_button2: ^2.3.9
+  internet_connection_checker: ^3.0.1
+  logger: ^2.5.0
+  awesome_dialog: ^3.2.1
+  rive: ^0.13.20
 
 dev_dependencies:
   flutter_test:

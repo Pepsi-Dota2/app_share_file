@@ -2,7 +2,7 @@
   "login": {
     "username_hint": "Enter your username",
     "username_validation": "Please enter a username",
-    "password": "Password",
+    "password_hint": "Password",
     "password_validation": "Please enter a password",
     "remember_me": "Remember me",
     "forgot_password": "Forgot password?",
@@ -10,9 +10,25 @@
     "no_account": "Don't have an account?",
     "sign_up": " Sign Up"
   },
-  "translate":{
-    "en":"English",
-    "la":"Laos",
+  "translate": {
+    "en": "English",
+    "la": "Laos",
     "select_language": "Select language"
-  }
+  },
+  "tutorial": {
+    "welcome_title": "Welcome to CleanEarth!",
+    "welcome_body": "Join us in making the planet cleaner and greener by managing waste responsibly.",
+    "recycle_title": "Recycle and Reuse",
+    "recycle_body": "Learn how to sort waste, recycle materials, and reduce landfill impact.",
+    "track_title": "Track Your Impact",
+    "track_body": "Monitor your contribution to a cleaner environment and earn rewards for sustainable actions.",
+    "skip": "Skip",
+    "done": "Done"
+  },
+  "error": {
+      "user_not_found": "User Not Found",
+      "error": "Error",
+      "user_not_found_message": "User not found. Please check your username or password.",
+      "server_error": "An unexpected error occurred."
+  }    
 }

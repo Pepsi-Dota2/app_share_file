@@ -10,7 +10,7 @@ class CustomFormBuilder extends StatelessWidget {
     this.hintText,
     this.validator,
     this.initialValue,
-    this.obscureText = false,
+    this.obscureText = false, required this.controller,
   });
 
   final String name;
@@ -19,11 +19,13 @@ class CustomFormBuilder extends StatelessWidget {
   final String? Function(String?)? validator;
   final String? initialValue;
   final bool obscureText;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return FormBuilderTextField(
       name: name,
+      controller: controller,
       decoration: InputDecoration(
         hintText: hintText ?? 'Enter $name',
          border: OutlineInputBorder(

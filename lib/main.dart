@@ -11,8 +11,8 @@ void main() async {
   runApp(
     EasyLocalization(
         supportedLocales: SupportedLocale.locales,
-        path: 'assets/translations', // Path to your translation files
-        fallbackLocale: Locale('en'), // Fallback locale
+        path: 'assets/translations',
+        fallbackLocale: Locale('en'),
         child: MyApp()),
   );
 }
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       builder: (theme, lightTheme) => MaterialApp.router(
         title: 'Adaptive Theme Demo',
         theme: lightTheme,
-        darkTheme: GarbageTheme.darkTheme,
+        darkTheme: GarbageTheme.lightTheme,
         routerDelegate: _appRouter.delegate(),
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
