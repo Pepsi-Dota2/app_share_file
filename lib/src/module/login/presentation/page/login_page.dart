@@ -15,6 +15,7 @@ import 'package:app_share_file/src/core/widgets/language_button.dart';
 import 'package:app_share_file/src/core/widgets/loading_dialog.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -51,9 +52,7 @@ class _LoginPageState extends State<LoginPage> {
         state.maybeWhen(
           success: (userLogin, _) {
             LoadingDialog.hideLoadingDialog(context);
-            if (userLogin.isEmpty) {
-              getIt<AppRouter>().replaceAll([IntroduceRoute()]);
-            }
+            getIt<AppRouter>().replaceAll([IntroduceRoute()]);
           },
           error: (message) {
             ErrorDialog.showErrorDialog(
@@ -121,22 +120,22 @@ class _LoginPageState extends State<LoginPage> {
                         controller: pwdController,
                       ),
                       const SizedBox(height: 16),
-                      Row(
-                        children: [
-                          // Checkbox(
-                          //   value: state.maybeMap(
-                          //     success: (successState) =>successState.isRemember,
-                          //     orElse: () => false,
-                          //   ),
-                          //   onChanged: (value) {
-                          //     cubit.isRememberme(value ?? false);
-                          //   },
-                          // ),
-                          // Text(LocaleKeys.login_remember_me.tr()),
-                          const Spacer(),
-                          Text(LocaleKeys.login_forgot_password.tr())
-                        ],
-                      ),
+                      // Row(
+                      //   children: [
+                      //     Checkbox(
+                      //       value: state.maybeMap(
+                      //         success: (successState) =>successState.isRemember,
+                      //         orElse: () => false,
+                      //       ),
+                      //       onChanged: (value) {
+                      //         cubit.isRememberme(value ?? false);
+                      //       },
+                      //     ),
+                      //     Text(LocaleKeys.login_remember_me.tr()),
+                      //     const Spacer(),
+                      //     Text(LocaleKeys.login_forgot_password.tr())
+                      //   ],
+                      // ),
                       const SizedBox(height: 50),
                       CustomButtonSubmit(
                         label: LocaleKeys.login_sign_in.tr(),
@@ -183,10 +182,14 @@ class _LoginPageState extends State<LoginPage> {
                                     color: AppColors.grabageColor,
                                     fontSize: 18,
                                   ),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      context.router.push(RegisterRoute());
+                                    },
                                 ),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       )
                     ],

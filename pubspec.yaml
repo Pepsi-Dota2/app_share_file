@@ -70,6 +70,8 @@ dependencies:
   rive: ^0.13.20
   shared_preferences: ^2.3.5
   flutter_secure_storage: ^9.2.4
+  dropdown_search: ^6.0.2
+  intl_phone_number_input: ^0.7.4
 
 dev_dependencies:
   flutter_test:

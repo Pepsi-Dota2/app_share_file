@@ -30,5 +30,30 @@
     "error": "ຂໍ້ຜິດພາດ",
     "user_not_found_message": "ຜູ້ໃຊ້ບໍ່ພົບ. ກະລຸນາກວດສອບຊື່ຜູ້ໃຊ້ ຫຼື ລະຫັດຜ່ານ.",
     "server_error": "ມີຂໍ້ຜິດພາດທີ່ບໍ່ຄາດຄິດເກີດຂຶ້ນ."
+  },
+  "village": {
+    "hongke": "ຫ້ອງແກ້",
+    "phonsinuan": "ໂພນສີນວນ",
+    "sisattanak": "ສີສັດຕະນາກ",
+    "phonpapao": "ໂພນປາເປົ້າ",
+    "khoualuang": "ຂົວຫລວງ",
+    "nongduang": "ໜອງດ່ວງ",
+    "nongchanh": "ໜອງຈັນ",
+    "hatsady": "ຫາດຊາຍ",
+    "sisaket": "ສີສະເກດ",
+    "sihom": "ສີໂຮມ",
+    "anou": "ອານຸ",
+    "watchan": "ວັດຈັນ",
+    "nongchan": "ໜອງຈັນ",
+    "kaoliao": "ເກົ່າລ້ຽວ",
+    "nongbuathong": "ໜອງບົວທອງ",
+    "sikhai": "ສີຄາຍ",
+    "nongping": "ໜອງພິງ",
+    "thongkhankham": "ທົ່ງຂັນຄຳ",
+    "phonthan": "ໂພນທັນ",
+    "phontong": "ໂພນໂທງ",
+    "dongpalan": "ດົງປາລານ",
+    "nongbone": "ໜອງບອນ",
+    "sapanthong": "ສະພານທອງ"
   }
 }

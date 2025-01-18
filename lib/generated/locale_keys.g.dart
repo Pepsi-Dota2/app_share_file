@@ -29,5 +29,29 @@ abstract class  LocaleKeys {
   static const error_user_not_found_message = 'error.user_not_found_message';
   static const error_server_error = 'error.server_error';
   static const error = 'error';
+  static const village_hongke = 'village.hongke';
+  static const village_phonsinuan = 'village.phonsinuan';
+  static const village_sisattanak = 'village.sisattanak';
+  static const village_phonpapao = 'village.phonpapao';
+  static const village_khoualuang = 'village.khoualuang';
+  static const village_nongduang = 'village.nongduang';
+  static const village_nongchanh = 'village.nongchanh';
+  static const village_hatsady = 'village.hatsady';
+  static const village_sisaket = 'village.sisaket';
+  static const village_sihom = 'village.sihom';
+  static const village_anou = 'village.anou';
+  static const village_watchan = 'village.watchan';
+  static const village_nongchan = 'village.nongchan';
+  static const village_kaoliao = 'village.kaoliao';
+  static const village_nongbuathong = 'village.nongbuathong';
+  static const village_sikhai = 'village.sikhai';
+  static const village_nongping = 'village.nongping';
+  static const village_thongkhankham = 'village.thongkhankham';
+  static const village_phonthan = 'village.phonthan';
+  static const village_phontong = 'village.phontong';
+  static const village_dongpalan = 'village.dongpalan';
+  static const village_nongbone = 'village.nongbone';
+  static const village_sapanthong = 'village.sapanthong';
+  static const village = 'village';
 
 }

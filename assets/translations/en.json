@@ -26,9 +26,34 @@
     "done": "Done"
   },
   "error": {
-      "user_not_found": "User Not Found",
-      "error": "Error",
-      "user_not_found_message": "User not found. Please check your username or password.",
-      "server_error": "An unexpected error occurred."
-  }    
+    "user_not_found": "User Not Found",
+    "error": "Error",
+    "user_not_found_message": "User not found. Please check your username or password.",
+    "server_error": "An unexpected error occurred."
+  },
+  "village": {
+    "hongke": "Hong Ke",
+    "phonsinuan": "Phonsinuan",
+    "sisattanak": "Sisattanak",
+    "phonpapao": "Phonpapao",
+    "khoualuang": "Khoualuang",
+    "nongduang": "Nongduang",
+    "nongchanh": "Nongchanh",
+    "hatsady": "Hatsady",
+    "sisaket": "Sisaket",
+    "sihom": "Sihom",
+    "anou": "Anou",
+    "watchan": "Watchan",
+    "nongchan": "Nongchan",
+    "kaoliao": "Kaoliao",
+    "nongbuathong": "Nongbuathong",
+    "sikhai": "Sikhai",
+    "nongping": "Nongping",
+    "thongkhankham": "Thongkhankham",
+    "phonthan": "Phonthan",
+    "phontong": "Phontong",
+    "dongpalan": "Dongpalan",
+    "nongbone": "Nongbone",
+    "sapanthong": "Sapanthong"
+  }
 }
