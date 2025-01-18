@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:app_share_file/generated/locale_keys.g.dart';
 import 'package:app_share_file/src/core/config/di/config_dependencies.dart';
 import 'package:app_share_file/src/core/constant/colors/app_color.dart';
-import 'package:app_share_file/src/core/constant/enum.dart';
 import 'package:app_share_file/src/core/constant/image_path.dart';
+import 'package:app_share_file/src/core/router/routers.dart';
 import 'package:app_share_file/src/core/router/routers.gr.dart';
 import 'package:app_share_file/src/core/utils/bottom_sheet.dart';
 import 'package:app_share_file/src/core/widgets/custom_button_submit.dart';
@@ -49,15 +49,17 @@ class _LoginPageState extends State<LoginPage> {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         state.maybeWhen(
-          success: (userLogin, isRemember) {
+          success: (userLogin, _) {
             LoadingDialog.hideLoadingDialog(context);
-            context.router.replace(IntroduceRoute());
+            if (userLogin.isEmpty) {
+              getIt<AppRouter>().replaceAll([IntroduceRoute()]);
+            }
           },
           error: (message) {
-              ErrorDialog.showErrorDialog(
-                context: context,
-                message: message,
-              );
+            ErrorDialog.showErrorDialog(
+              context: context,
+              message: message,
+            );
           },
           orElse: () => () {},
         );
@@ -121,17 +123,16 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 16),
                       Row(
                         children: [
-                          Checkbox(
-                            value: state.maybeMap(
-                              success: (successState) =>
-                                  successState.isRemember,
-                              orElse: () => false,
-                            ),
-                            onChanged: (value) {
-                              cubit.isRememberme(value ?? false);
-                            },
-                          ),
-                          Text(LocaleKeys.login_remember_me.tr()),
+                          // Checkbox(
+                          //   value: state.maybeMap(
+                          //     success: (successState) =>successState.isRemember,
+                          //     orElse: () => false,
+                          //   ),
+                          //   onChanged: (value) {
+                          //     cubit.isRememberme(value ?? false);
+                          //   },
+                          // ),
+                          // Text(LocaleKeys.login_remember_me.tr()),
                           const Spacer(),
                           Text(LocaleKeys.login_forgot_password.tr())
                         ],
@@ -176,10 +177,10 @@ class _LoginPageState extends State<LoginPage> {
                                 fontSize: 16,
                               ),
                               children: [
-                                 TextSpan(
-                                  text: ' ${LocaleKeys.login_sign_up.tr()}', 
+                                TextSpan(
+                                  text: ' ${LocaleKeys.login_sign_up.tr()}',
                                   style: TextStyle(
-                                    color: AppColors.grabageColor, 
+                                    color: AppColors.grabageColor,
                                     fontSize: 18,
                                   ),
                                 ),

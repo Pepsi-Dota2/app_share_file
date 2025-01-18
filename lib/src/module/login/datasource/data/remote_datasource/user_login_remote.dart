@@ -8,7 +8,6 @@ import 'package:app_share_file/src/module/login/domain/usecase/user_login_usecas
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/web.dart';
 
 abstract class RemoteDataSource {
   Future<Either<Failure, UserLoginModel>> login(LoginParams login);

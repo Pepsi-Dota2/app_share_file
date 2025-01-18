@@ -19,7 +19,7 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginState.success(isRemember: isRemember));
   }
 
-  Future<void> login(String username, String password) async {
+  Future<void> login( String username, String password) async {
     try {
       emit(LoginState.loading());
 
