@@ -34,7 +34,7 @@ class _AppApi implements AppApi {
     )
         .compose(
           _dio.options,
-          'http://192.168.103.124:8080/v1/user/login',
+          'http://192.168.203.124:8080/v1/user/login',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -47,6 +47,39 @@ class _AppApi implements AppApi {
     late UserLoginModel _value;
     try {
       _value = UserLoginModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<UserRegisterModel> register(RegisterParams userRegister) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = userRegister;
+    final _options = _setStreamType<UserRegisterModel>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'http://192.168.203.124:8080/v1/user/register',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late UserRegisterModel _value;
+    try {
+      _value = UserRegisterModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

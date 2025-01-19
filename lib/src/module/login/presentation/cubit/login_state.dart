@@ -8,6 +8,7 @@ class LoginState with _$LoginState {
   const factory LoginState.failure(Failure failure) = _Failure;
   const factory LoginState.success({
     @Default([]) List<UserLoginModel> userLogin,
+    @Default([]) List<UserRegisterModel> register,
     @Default(false) bool? isRemember,
   }) = _Success;
 }

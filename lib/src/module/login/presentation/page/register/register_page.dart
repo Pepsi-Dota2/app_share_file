@@ -2,10 +2,15 @@ import 'package:app_share_file/generated/locale_keys.g.dart';
 import 'package:app_share_file/src/core/config/di/config_dependencies.dart';
 import 'package:app_share_file/src/core/constant/colors/app_color.dart';
 import 'package:app_share_file/src/core/constant/constant.dart';
+import 'package:app_share_file/src/core/router/routers.dart';
 import 'package:app_share_file/src/core/router/routers.gr.dart';
 import 'package:app_share_file/src/core/widgets/custom_button_submit.dart';
 import 'package:app_share_file/src/core/widgets/custom_drop_down_search.dart';
 import 'package:app_share_file/src/core/widgets/custom_form_builder.dart';
+import 'package:app_share_file/src/core/widgets/custom_form_file_password.dart';
+import 'package:app_share_file/src/core/widgets/custom_phone_number_input.dart';
+import 'package:app_share_file/src/core/widgets/error_dialog.dart';
+import 'package:app_share_file/src/core/widgets/loading_dialog.dart';
 import 'package:app_share_file/src/module/login/presentation/cubit/login_cubit.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -30,16 +35,27 @@ class RegisterPage extends StatelessWidget implements AutoRouteWrapper {
     final _formKey = GlobalKey<FormBuilderState>();
     final usernameController = TextEditingController();
     final pwdController = TextEditingController();
+    final pwdConfirmController = TextEditingController();
     final emailController = TextEditingController();
     final phoneController = TextEditingController();
+    final addressController = TextEditingController();
 
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        // TODO: implement listener
+        state.maybeWhen(
+          success: (userLogin, _, register) {
+            LoadingDialog.hideLoadingDialog(context);
+            getIt<AppRouter>().replaceAll([IntroduceRoute()]);
+          },
+          orElse: () => () {},
+        );
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text("Create Account"),
+          ),
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -49,10 +65,10 @@ class RegisterPage extends StatelessWidget implements AutoRouteWrapper {
                   children: [
                     CustomFormBuilder(
                       name: 'username',
-                      hintText: 'username',
+                      hintText: LocaleKeys.login_username_hint.tr(),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return LocaleKeys.login_username_validation.tr();
                         }
                         return null;
                       },
@@ -61,61 +77,66 @@ class RegisterPage extends StatelessWidget implements AutoRouteWrapper {
                     const SizedBox(height: 16),
                     CustomFormBuilder(
                       name: 'email',
-                      hintText: 'email',
+                      hintText: LocaleKeys.login_email_hint.tr(),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return LocaleKeys.login_email_validation.tr();
                         }
                         return null;
                       },
                       controller: emailController,
                     ),
                     const SizedBox(height: 16),
-                    CustomFormBuilder(
-                      name: 'phone',
-                      hintText: 'phone',
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
-                        }
-                        return null;
-                      },
-                      controller: phoneController,
-                    ),
-                    const SizedBox(height: 16),
-                    CustomFormBuilder(
+                    CustomFormBuilderPassword(
                       name: 'password',
-                      hintText: 'password',
+                      obscureText: true, // Enable password visibility toggle
+                      hintText: LocaleKeys.login_password_hint.tr(),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return LocaleKeys.login_password_validation.tr();
                         }
                         return null;
                       },
                       controller: pwdController,
                     ),
                     const SizedBox(height: 16),
-                    CustomFormBuilder(
+                    CustomFormBuilderPassword(
                       name: 'confirmPassword',
-                      hintText: 'confirm password',
+                      obscureText: true, // Enable password visibility toggle
+                      hintText: LocaleKeys.login_confirm_password_hint.tr(),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                          return LocaleKeys.login_confirm_password_validation
+                              .tr();
                         }
                         return null;
                       },
-                      controller: pwdController,
+                      controller: pwdConfirmController,
+                    ),
+                    const SizedBox(height: 16),
+                    CustomPhoneNumberInput(
+                      controller: phoneController,
+                      labelText: 'Phone Number',
+                      initialValue: '',
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter a phone number';
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(height: 16),
                     CustomSearchableDropdown(
+                      controller: addressController, // Pass the controller
                       initialValue: VillageHelper.getVillageItems().first,
                       items: VillageHelper.getVillageItems(),
+                      hintText: "Enter your village",
                       onChanged: (value) {
-                        print(value);
+                        addressController.text = value ?? '';
                       },
                       validator: (value) {
-                        if (value == null) {
-                          return 'Please enter some text';
+                        if (value == null || value.isEmpty) {
+                          return 'Please select a village';
                         }
                         return null;
                       },
@@ -127,7 +148,21 @@ class RegisterPage extends StatelessWidget implements AutoRouteWrapper {
                         if (_formKey.currentState!.validate() != false) {
                           final username = usernameController.text.trim();
                           final pwd = pwdController.text.trim();
-                          // context.read<LoginCubit>().login(username, pwd);
+                          if (pwd != pwdConfirmController.text.trim()) {
+                            ErrorDialog.showErrorDialog(
+                              context: context,
+                              message: LocaleKeys
+                                  .login_confirm_password_validation
+                                  .tr(),
+                            );
+                            return;
+                          }
+                          final email = emailController.text.trim();
+                          final phone = phoneController.text.trim();
+                          final village = addressController.text.trim();
+                          context
+                              .read<LoginCubit>()
+                              .register(username, pwd, email, phone, village);
                         }
                       },
                     ),
@@ -137,14 +172,14 @@ class RegisterPage extends StatelessWidget implements AutoRouteWrapper {
                       children: [
                         RichText(
                           text: TextSpan(
-                            text: LocaleKeys.login_no_account.tr(),
+                            text: LocaleKeys.login_already_have_account.tr(),
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 16,
                             ),
                             children: [
                               TextSpan(
-                                text: ' ${LocaleKeys.login_sign_up.tr()}',
+                                text: ' ${LocaleKeys.login_sign_in.tr()}',
                                 style: TextStyle(
                                   color: AppColors.grabageColor,
                                   fontSize: 18,

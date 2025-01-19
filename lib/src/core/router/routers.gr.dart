@@ -36,7 +36,7 @@ abstract class $AppRouter extends _i4.RootStackRouter {
     RegisterRoute.name: (routeData) {
       return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.RegisterPage(),
+        child: _i4.WrappedRoute(child: const _i3.RegisterPage()),
       );
     },
   };

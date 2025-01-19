@@ -4,10 +4,15 @@
     "username_validation": "ກະລຸນາໃສ່ຊື່ຜູ້ໃຊ້",
     "password_hint": "ລະຫັດຜ່ານ",
     "password_validation": "ກະລຸນາໃສ່ລະຫັດຜ່ານ",
-    "remember_me": "ຈື່ຈຳຂ້ອຍ",
+    "confirm_password_hint": "ຢືນຢັນລະຫັດຜ່ານ",
+    "confirm_password_validation": "ລະຫັດຜ່ານບໍ່ຄືກັນ",
+    "email_hint": "ປ້ອນອີເມວຂອງທ່ານ",
+    "email_validation": "ກະລຸນາປ້ອນອີເມວທີ່ຖືກຕ້ອງ",
+    "remember_me": "ຈື່ຈຳຂ້ອຍ", 
     "forgot_password": "ລືມລະຫັດຜ່ານ?",
     "sign_in": "ເຂົ້າສູ່ລະບົບ",
     "no_account": "ບໍ່ມີບັນຊີ?",
+    "already_have_account": "ມີບັນຊີນີ້ຫຼືບໍ່?",
     "sign_up": " ລົງທະບຽນ"
   },
   "translate": {

@@ -1,5 +1,6 @@
 import 'package:app_share_file/src/core/config/observe.dart';
 import 'package:app_share_file/src/module/login/domain/usecase/user_login_usecase.dart';
+import 'package:app_share_file/src/module/login/domain/usecase/user_register_usecase.dart';
 import 'package:app_share_file/src/module/login/presentation/cubit/login_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +19,7 @@ Future<GetIt> configDependencies() async {
   Bloc.observer = SimpleBlocObserver();
   getIt.registerFactory<LoginCubit>(() => LoginCubit(
         getIt<UserLoginUseCase>(),
+        getIt<UserRegisterUseCase>(),
       ));
   return getIt.init();
 }

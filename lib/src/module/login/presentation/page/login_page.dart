@@ -9,6 +9,7 @@ import 'package:app_share_file/src/core/router/routers.gr.dart';
 import 'package:app_share_file/src/core/utils/bottom_sheet.dart';
 import 'package:app_share_file/src/core/widgets/custom_button_submit.dart';
 import 'package:app_share_file/src/core/widgets/custom_form_builder.dart';
+import 'package:app_share_file/src/core/widgets/custom_form_file_password.dart';
 import 'package:app_share_file/src/core/widgets/custom_icon_button.dart';
 import 'package:app_share_file/src/core/widgets/error_dialog.dart';
 import 'package:app_share_file/src/core/widgets/language_button.dart';
@@ -50,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         state.maybeWhen(
-          success: (userLogin, _) {
+          success: (userLogin, _, register) {
             LoadingDialog.hideLoadingDialog(context);
             getIt<AppRouter>().replaceAll([IntroduceRoute()]);
           },
@@ -107,17 +108,18 @@ class _LoginPageState extends State<LoginPage> {
                         controller: usernameController,
                       ),
                       const SizedBox(height: 16),
-                      CustomFormBuilder(
+                       CustomFormBuilderPassword(
                         name: 'password',
-                        hintText: LocaleKeys.login_password_hint.tr(),
-                        obscureText: true,
+                        labelText: 'Password',
+                        hintText: 'Enter your password',
+                        obscureText: true, // Enable password visibility toggle
+                        controller: pwdController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return LocaleKeys.login_password_validation.tr();
+                            return 'Please enter your password';
                           }
                           return null;
                         },
-                        controller: pwdController,
                       ),
                       const SizedBox(height: 16),
                       // Row(

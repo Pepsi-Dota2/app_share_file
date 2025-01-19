@@ -5,10 +5,15 @@ abstract class  LocaleKeys {
   static const login_username_validation = 'login.username_validation';
   static const login_password_hint = 'login.password_hint';
   static const login_password_validation = 'login.password_validation';
+  static const login_confirm_password_hint = 'login.confirm_password_hint';
+  static const login_confirm_password_validation = 'login.confirm_password_validation';
+  static const login_email_hint = 'login.email_hint';
+  static const login_email_validation = 'login.email_validation';
   static const login_remember_me = 'login.remember_me';
   static const login_forgot_password = 'login.forgot_password';
   static const login_sign_in = 'login.sign_in';
   static const login_no_account = 'login.no_account';
+  static const login_already_have_account = 'login.already_have_account';
   static const login_sign_up = 'login.sign_up';
   static const login = 'login';
   static const translate_en = 'translate.en';

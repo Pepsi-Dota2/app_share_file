@@ -14,7 +14,7 @@ class CustomSearchableDropdown extends StatelessWidget {
     this.initialValue,
     this.titleBackgroundColor = Colors.deepPurple,
     this.titleTextColor = Colors.white70,
-    this.dialogBorderRadius = 25,
+    this.dialogBorderRadius = 25, this.controller,
   });
 
   final List<String> items;
@@ -23,6 +23,7 @@ class CustomSearchableDropdown extends StatelessWidget {
   final String? hintText;
   final String? dialogTitle;
   final FormFieldValidator<String>? validator;
+  final TextEditingController? controller; // Added controller
   final String? initialValue;
   final Color titleBackgroundColor;
   final Color titleTextColor;
@@ -33,8 +34,13 @@ class CustomSearchableDropdown extends StatelessWidget {
     return DropdownSearch<String>(
       items: (a, b) => items,
       validator: validator,
-      onChanged: onChanged,
-      selectedItem: initialValue,
+      onChanged: (value) {
+      if (controller != null && value != null) {
+        controller!.text = value; 
+      }
+      onChanged(value); 
+    },
+      selectedItem: controller?.text.isNotEmpty == true ? controller!.text : initialValue,
       decoratorProps: DropDownDecoratorProps(
         decoration: InputDecoration(
           labelText: labelText,
@@ -45,6 +51,10 @@ class CustomSearchableDropdown extends StatelessWidget {
           ),
           filled: true,
           fillColor: AppColors.backgroundWhite,
+          hintStyle: const TextStyle(
+            fontSize: 14.0,
+            color: Colors.grey,
+          ),
         ),
       ),
       popupProps: PopupProps.dialog(

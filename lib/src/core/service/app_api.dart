@@ -1,6 +1,8 @@
 import 'package:app_share_file/src/core/constant/api_path/api_path.dart';
 import 'package:app_share_file/src/module/login/domain/model/user_login_model.dart';
+import 'package:app_share_file/src/module/login/domain/model/user_register_model.dart';
 import 'package:app_share_file/src/module/login/domain/usecase/user_login_usecase.dart';
+import 'package:app_share_file/src/module/login/domain/usecase/user_register_usecase.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
@@ -15,4 +17,7 @@ abstract class AppApi {
 
   @POST(AppApiPath.login)
   Future<UserLoginModel> login(@Body() LoginParams userLogin);
+
+  @POST(AppApiPath.register)
+  Future<UserRegisterModel> register(@Body() RegisterParams userRegister);
 }

@@ -6,11 +6,11 @@ part 'user_register_model.g.dart';
 @freezed
 class UserRegisterModel with _$UserRegisterModel {
   const factory UserRegisterModel({
-    required String username,
-    required String password,
-    required String email,
-    required String phoneNumber,
-    required String address,
+    @Default("") String username,
+    @Default("") String password,
+    @Default("") String email,
+    @Default("") String phoneNumber,
+    @Default("") String address,
   }) = _UserRegisterModel;
 
   factory UserRegisterModel.fromJson(Map<String, dynamic> json) =>

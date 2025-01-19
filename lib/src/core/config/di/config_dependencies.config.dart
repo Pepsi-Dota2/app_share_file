@@ -17,10 +17,16 @@ import 'package:app_share_file/src/module/login/datasource/data/remote_datasourc
     as _i186;
 import 'package:app_share_file/src/module/login/datasource/repository_impl/user_login_repository_impl.dart'
     as _i466;
+import 'package:app_share_file/src/module/login/datasource/repository_impl/user_register_repository_impl.dart'
+    as _i688;
 import 'package:app_share_file/src/module/login/domain/repository/user_login_repository.dart'
     as _i775;
+import 'package:app_share_file/src/module/login/domain/repository/user_register_repository.dart'
+    as _i930;
 import 'package:app_share_file/src/module/login/domain/usecase/user_login_usecase.dart'
     as _i417;
+import 'package:app_share_file/src/module/login/domain/usecase/user_register_usecase.dart'
+    as _i807;
 import 'package:dio/dio.dart' as _i361;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
@@ -46,11 +52,16 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i554.AppApi>(() => _i554.AppApi(gh<_i361.Dio>()));
     gh.lazySingleton<_i186.RemoteDataSource>(
         () => _i186.UserLoginRemote(gh<_i554.AppApi>()));
+    gh.lazySingleton<_i930.UserRegisterRepository>(() =>
+        _i688.UserRegisterRepositoryImpl(
+            remoteDataSource: gh<_i186.RemoteDataSource>()));
     gh.lazySingleton<_i775.UserLoginRepository>(
         () => _i466.UserLoginRepositoryImpl(
               gh<_i704.LocalDataSource>(),
               remoteDataSource: gh<_i186.RemoteDataSource>(),
             ));
+    gh.lazySingleton<_i807.UserRegisterUseCase>(
+        () => _i807.UserRegisterUseCase(gh<_i930.UserRegisterRepository>()));
     gh.lazySingleton<_i417.UserLoginUseCase>(
         () => _i417.UserLoginUseCase(gh<_i775.UserLoginRepository>()));
     return this;

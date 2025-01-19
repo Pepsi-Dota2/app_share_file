@@ -4,10 +4,15 @@
     "username_validation": "Please enter a username",
     "password_hint": "Password",
     "password_validation": "Please enter a password",
+    "confirm_password_hint": "Confirm Password",
+    "confirm_password_validation": "Passwords do not match",
+    "email_hint":"Enter your Email",
+    "email_validation": "Please enter a valid email",
     "remember_me": "Remember me",
     "forgot_password": "Forgot password?",
     "sign_in": "Sign In",
     "no_account": "Don't have an account?",
+    "already_have_account": "Already have an account?",
     "sign_up": " Sign Up"
   },
   "translate": {
